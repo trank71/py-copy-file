@@ -16,7 +16,7 @@ def copy_file(command: str) -> None:
         return
 
     try:
-        with open(source_file, "r") as file_in,\
+        with open(source_file, "r") as file_in, \
                 open(destination_file, "w") as file_out:
             file_out.write(file_in.read())
     except OSError:
