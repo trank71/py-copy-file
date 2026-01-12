@@ -7,16 +7,16 @@ def copy_file(command: str) -> None:
     if len(parts) != 3 or parts[0] != "cp":
         return
 
-    _, src, dst = parts
+    _, source_file, destination_file = parts
 
-    if src == dst:
+    if source_file == destination_file:
         return
 
-    if not os.path.exists(src):
+    if not os.path.exists(source_file):
         return
 
     try:
-        with open(src, "r") as file_in, open(dst, "w") as file_out:
+        with open(source_file, "r") as file_in, open(destination_file, "w") as file_out:
             file_out.write(file_in.read())
     except OSError:
         return
